@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header class="header">
+    <header class="header container">
         <nav class="navbar">
             <div class="branch-name-container">
                 <a href="#">YoutubeDL</a>
             </div>
-            
+
             <div class="buttons-container">
                 <a href="#">Logs</a>
                 <a href="#">Finished</a>
@@ -20,12 +22,39 @@
         </nav>
     </header>
 
-    <main>
+    <main class="container main">
+        <!-- title -->
         <section class="main-title">
             <h1>Youtube-dl</h1>
-            <p>Enter a video url to download the video to the server. Url can be to YouTuve or any other supported sites.The server will automatically download the highest quality version avaliable</p>
+            <p>Enter a video url to download the video to the server. Url can be to YouTuve or any other supported
+                sites.The server will automatically download the highest quality version avaliable</p>
+        </section>
+        <!-- input -->
+        <section class="input-area">
+            <input type="text" placeholder="URL" required>
+            <select id="cars">
+                <option value="volvo" selected>Best Video</option>
+                <option value="saab">1080p</option>
+                <option value="opel">720p</option>
+                <option value="audi">480p</option>
+                <option value="audi">360p</option>
+                <option value="audi">240p</option>
+                <option value="audi">144p</option>
+            </select>
+            <button type="submit">Submit</button>
+        </section>
+        <!-- status -->
+        <section class="status-area">
+            <div class="status-box-success">
+                <p class="status"><strong>Success</strong>: https://www.youtube.com/example</p>
+            </div>
         </section>
     </main>
+    
+    <footer class="container footer">
+        <p>Powered by<strong> youtube-dlc </strong>version <strong>2020.10.26</strong>code & issues on <strong>GitHub.</strong></p>
+    </footer>
     <script src="script.js"></script>
 </body>
+
 </html>
