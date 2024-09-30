@@ -13,23 +13,21 @@ class DL:
         
         def wrapper(self, link):            
             is_valid = any(re.match(regex, link, re.IGNORECASE) for regex in [r".*(www\.youtube\.com).*", r".*(youtu\.be).*"])
-
+    
             if is_valid:
                 return func(self, link)
             return -1    
         
         return wrapper
 
-
-    def get_info(self, links):
+    @_check
+    def get_info(self, link):
 
         data = {}
-        for i, link in enumerate(links):
-
-            info_dict = self._ydl.extract_info(f"{link}", download=False)
-            video_url = info_dict.get("url", None)
-            video_title = info_dict.get("title", "")
-            data.__setitem__(f"{i}", {"url" : video_url, "title" : video_title})
+        info_dict = self._ydl.extract_info(f"{link}", download=True)
+        video_url = info_dict.get("url", None)
+        video_title = info_dict.get("title", "")
+        data.__setitem__(f"{0}", {"url" : video_url, "title" : video_title})
 
         return data
     
@@ -44,6 +42,3 @@ class DL:
         if "playlist" in link:
             return True
         return False
-
-
-dl = DL()
