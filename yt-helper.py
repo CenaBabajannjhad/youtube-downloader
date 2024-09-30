@@ -1,10 +1,11 @@
 import re
 from yt_dlp import YoutubeDL
 
+
 class DL:
     
     def __init__(self) -> None:
-        ydl_opts = {'proxy': "localhost:10808",'format' : 'mp4/bestvideo/best', 'outtmpl': "./data/%(title)s.%(ext)s"}
+        ydl_opts = {'cookiesfrombrowser': ('firefox',), 'format' : 'mp4/bestvideo/best', 'outtmpl': "%(title)s.%(ext)s"}
         self._ydl = YoutubeDL(ydl_opts)
 
     # decorator for check url is valid or not
@@ -18,17 +19,19 @@ class DL:
             return -1    
         
         return wrapper
-        
+
+
     def get_info(self, links):
-        
+
         data = {}
         for i, link in enumerate(links):
-            info_dict = self._ydl.extract_info(f"ytsearch:{link}", download=False)
-            data.get(i, i)
+
+            info_dict = self._ydl.extract_info(f"{link}", download=False)
             video_url = info_dict.get("url", None)
-            video_id = info_dict.get("id", None)
-            video_title = info_dict.get('title', None)
-        
+            video_title = info_dict.get("title", "")
+            data.__setitem__(f"{i}", {"url" : video_url, "title" : video_title})
+
+        return data
     
     def export_video(self, link):
         pass
@@ -43,8 +46,4 @@ class DL:
         return False
 
 
-# playlist = "https://www.youtbe.com/playlist?list=PLfWgsfN7KWN0p7oIdPoPYmoTCMmMzLvPl"
-normal_video = "https://youtu.be/oon-mxBhuoc?si=UMSQhSecjX5z32oW"
-test = "https://youtu.be/QAjRBIDHWPg?si=UGMGzO1DSV2RPWmt"
 dl = DL()
-dl.get_info(test)
