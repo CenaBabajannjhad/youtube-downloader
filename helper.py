@@ -16,7 +16,7 @@ class DL:
     
             if is_valid:
                 return func(self, link)
-            return -1    
+            return None    
         
         return wrapper
 
