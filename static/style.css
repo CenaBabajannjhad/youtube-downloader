@@ -99,6 +99,11 @@ option:hover{
     background: #7373ff;
     text-transform: uppercase;
     color: white;
+    cursor: pointer;
+    transition: all .2s ease-out;
+}
+.input-area > button:hover{
+    background: #8d8dff;   
 }
 /* footer */
 .footer{

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
@@ -30,17 +31,16 @@
                 sites.The server will automatically download the highest quality version avaliable</p>
         </section>
         <!-- input -->
-        <section class="input-area">
-            <input type="text" placeholder="URL" required>
+        <form action="#" class="input-area" id="ytdl-form">
+            <input id="form-input" type="text" placeholder="URL" required>
 
             <button type="submit">Submit</button>
-        </section>
+        </form>
     </main>
     
     <footer class="container footer">
         <p>Powered by<strong> youtube-dlc </strong>version <strong>2020.10.26</strong>code & issues on <strong>GitHub.</strong></p>
     </footer>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 
 </html>
