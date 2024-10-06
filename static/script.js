@@ -5,7 +5,7 @@ const formInput = document.querySelector("#form-input");
 
 // convert url to base64
 const convertUrlToBase64 = url => {// Replace `+` with `-`  ||    // Replace `/` with `_`  ||  // Remove any `=` padding characters
-    return btoa(url).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');  
+    return btoa(url).replace(/\+/g, '-').replace(/\//g, '_');
 }
 // make full url
 const makeUrl = url => { 

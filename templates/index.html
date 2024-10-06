@@ -38,6 +38,12 @@
         </form>
     </main>
     
+    {% if data %}
+        {% for id in data %}
+            <h3>{{ url }}</h3>
+        {% endfor %}
+    {% endif %}
+
     <footer class="container footer">
         <p>Powered by<strong> youtube-dlc </strong>version <strong>2020.10.26</strong>code & issues on <strong>GitHub.</strong></p>
     </footer>
