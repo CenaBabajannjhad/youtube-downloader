@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from helper import DL
-import base64 
+import base64, json
 
 app = Flask(__name__)
 dl = DL()
@@ -15,10 +15,9 @@ def api_get(b64_url):
     
     encode_url = str(b64_url).replace("_", "/")
     decode_url = base64.b64decode(encode_url).decode("UTF-8")
-
     data = dl.get_info(decode_url)
-    
-    return data
+
+    return json.dumps(data)
 
 if __name__ == "__main__":
     app.run()
